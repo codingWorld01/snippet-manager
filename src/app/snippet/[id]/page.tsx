@@ -6,9 +6,9 @@ import { prisma } from "@/lib/prisma";
 export default async function EditSnippet({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{id:string}>
 }) {
-  const id = parseInt(params.id);
+  const id = parseInt((await params).id);
 
   const snippet = await prisma.snippet.findUnique({
     where: { id },
