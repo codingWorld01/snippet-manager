@@ -11,12 +11,8 @@ export default async function EditSnippet({
   const id = parseInt(params.id);
 
   const snippet = await prisma.snippet.findUnique({
-    where: {
-      id,
-    },
+    where: { id },
   });
-
-  
 
   return (
     <div className="flex items-center justify-center h-screen">
